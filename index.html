@@ -710,7 +710,7 @@
     <section aria-label="Datasets">
       <h2 class="section-heading">We also curate public niche datasets</h2>
 
-      <div class="card" style="margin-bottom:var(--space-4);">
+      <div class="card card-green">
         <p class="project-tagline">
           Public niche datasets are often large but noisy: loose boxes, missed objects, mislabels,
           duplicated images, class names that don't even match. Training on them caps your ceiling
@@ -718,47 +718,17 @@
         </p>
         <p class="project-tagline">
           We take these datasets, <strong>re-annotate and clean</strong> them with KeenForge, document
-          every change, and publish them openly on <strong>Hugging Face</strong> and
-          <strong>ModelScope</strong> — so anyone can start from a clean baseline instead of
-          re-discovering the same defects.
+          every change, and publish them openly — so anyone can start from a clean baseline instead of
+          re-discovering the same defects. So far: <strong>steel-surface defects</strong>,
+          <strong>blood-cell microscopy</strong> and <strong>wildlife</strong>.
         </p>
-
-        <table class="ds-table">
-          <thead>
-            <tr><th>Dataset</th><th>Domain</th><th>Size</th><th>Links</th></tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td><strong>GC10-DET-corrected</strong></td>
-              <td>Industrial — steel surface</td>
-              <td>2,280 imgs<br>3,542 boxes</td>
-              <td><a href="https://huggingface.co/datasets/KeenForgeAI/GC10-DET-corrected" target="_blank" rel="noopener">Hugging Face</a><br><a href="https://www.modelscope.ai/datasets/KeenForgeAI/GC10-DET-corrected" target="_blank" rel="noopener">ModelScope</a></td>
-            </tr>
-            <tr>
-              <td><strong>TXL-PBC-corrected</strong></td>
-              <td>Medical — hematology</td>
-              <td>1,256 imgs<br>18,098 boxes</td>
-              <td><a href="https://huggingface.co/datasets/KeenForgeAI/TXL-PBC-corrected" target="_blank" rel="noopener">Hugging Face</a><br><a href="https://www.modelscope.ai/datasets/KeenForgeAI/TXL-PBC-corrected" target="_blank" rel="noopener">ModelScope</a></td>
-            </tr>
-            <tr>
-              <td><strong>raccoon-corrected</strong></td>
-              <td>Wildlife</td>
-              <td>193 imgs<br>211 boxes</td>
-              <td><a href="https://huggingface.co/datasets/KeenForgeAI/raccoon-corrected" target="_blank" rel="noopener">Hugging Face</a><br><a href="https://www.modelscope.ai/datasets/KeenForgeAI/raccoon-corrected" target="_blank" rel="noopener">ModelScope</a></td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-
-      <div class="card card-green">
         <p class="project-tagline">
-          Every release ships with full provenance, a correction report and its upstream citation.
-          Corrections found by the community are very welcome — <strong class="em">if you spot a bad
-          box, tell us and we will fix it.</strong>
+          Every release ships with full provenance, a correction report and its upstream citation —
+          and <strong class="em">if you spot a bad box, tell us and we will fix it.</strong>
         </p>
         <div class="btn-row">
-          <a href="https://github.com/KeenForgeAI/KeenForgeData" class="btn btn-outline" target="_blank" rel="noopener"><i class="fas fa-database"></i> Dataset index</a>
-          <a href="https://huggingface.co/KeenForgeAI" class="btn btn-outline" target="_blank" rel="noopener"><i class="fas fa-arrow-up-right-from-square"></i> All datasets on HF</a>
+          <a href="https://huggingface.co/KeenForgeAI" class="btn btn-outline" target="_blank" rel="noopener"><i class="fas fa-arrow-up-right-from-square"></i> All datasets on Hugging Face</a>
+          <a href="https://www.modelscope.ai/organizations/KeenForgeAI" class="btn btn-outline" target="_blank" rel="noopener"><i class="fas fa-arrow-up-right-from-square"></i> All datasets on ModelScope</a>
         </div>
       </div>
     </section>
