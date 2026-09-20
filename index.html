@@ -3,11 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <meta name="description" content="Lu Gan & Sam Li — Building KeenForge, an AI agent that distills a senior vision engineer's workflow so anyone can train their own expert-grade vision model. CVPR 2026. Nature Portfolio. Seeking seed investment.">
-  <meta property="og:title" content="Lu Gan & Sam Li | KeenForge — Train Your Own AI Model">
-  <meta property="og:description" content="We distill a 7-year vision AI workflow into an agent. No code. No cloud. You own the model. CVPR 2026 · Nature Portfolio · Seed round.">
-  <meta property="og:type" content="profile">
-  <title>Lu Gan & Sam Li | KeenForge</title>
+  <meta name="description" content="KeenForgeAI builds KeenForge — an offline desktop tool that distils an image-algorithm engineer's workflow, so domain experts can annotate niche datasets and train their own vision models. No code, no cloud. Plus curated public niche datasets.">
+  <meta property="og:title" content="KeenForgeAI — An AI image-algorithm engineer, distilled">
+  <meta property="og:description" content="Foundation models can't label what they have never seen. Experts must. KeenForge makes that fast: dataset cleaning, human-in-the-loop annotation and model training, all local. No code. You own the model.">
+  <meta property="og:type" content="website">
+  <meta name="theme-color" content="#000000">
+  <title>KeenForgeAI — Train your own expert vision model</title>
+
+  <!-- Inline favicon (no extra file needed) -->
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23000'/%3E%3Cpath d='M20 40V24h8a8 8 0 0 1 0 16h-8zm0 0h9' stroke='%233b82f6' stroke-width='5' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3Ccircle cx='44' cy='44' r='4' fill='%2310b981'/%3E%3C/svg%3E">
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -90,7 +94,7 @@
       font-weight: 400;
       color: var(--text-secondary);
       margin-bottom: var(--space-5);
-      max-width: 540px;
+      max-width: 580px;
       margin-left: auto;
       margin-right: auto;
     }
@@ -139,6 +143,12 @@
       padding-left: var(--space-3);
       border-left: 3px solid var(--accent);
       margin-bottom: var(--space-5);
+    }
+
+    .section-sub {
+      font-size: var(--text-sm);
+      color: var(--text-tertiary);
+      margin: calc(var(--space-5) * -1 + var(--space-2)) 0 var(--space-5) var(--space-3);
     }
 
     /* Card */
@@ -267,6 +277,7 @@
 
     .project-tagline strong { color: var(--text-primary); font-weight: 600; }
     .project-tagline .em { color: var(--accent2); font-style: normal; font-weight: 600; }
+    .project-tagline:last-child { margin-bottom: 0; }
 
     /* Stat row */
     .stat-row {
@@ -338,6 +349,8 @@
       margin-bottom: var(--space-4);
     }
 
+    .comp-grid.three { grid-template-columns: 1fr 1fr 1fr; }
+
     .comp-box {
       padding: var(--space-4);
       border-radius: 6px;
@@ -367,6 +380,47 @@
     }
 
     .comp-box.new .comp-body { color: var(--text-primary); }
+
+    /* List */
+    .tick-list { list-style: none; display: grid; gap: var(--space-3); }
+    .tick-list li {
+      font-size: var(--text-sm);
+      color: var(--text-secondary);
+      line-height: 1.6;
+      padding-left: var(--space-6);
+      position: relative;
+    }
+    .tick-list li::before {
+      content: "\f00c";
+      font-family: "Font Awesome 6 Free";
+      font-weight: 900;
+      position: absolute;
+      left: 0;
+      top: 1px;
+      color: var(--accent2);
+      font-size: 0.85rem;
+    }
+    .tick-list strong { color: var(--text-primary); font-weight: 600; }
+
+    /* Dataset table */
+    .ds-table { width: 100%; border-collapse: collapse; font-size: var(--text-sm); }
+    .ds-table th, .ds-table td {
+      text-align: left;
+      padding: 10px var(--space-3);
+      border-bottom: 1px solid var(--border-light);
+      vertical-align: top;
+    }
+    .ds-table th {
+      font-size: var(--text-xs);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--text-tertiary);
+      font-weight: 600;
+      border-bottom: 1px solid var(--border);
+    }
+    .ds-table td { color: var(--text-secondary); }
+    .ds-table td strong { color: var(--text-primary); font-weight: 600; }
+    .ds-table tr:last-child td { border-bottom: none; }
 
     /* Publication */
     .pub-journal {
@@ -419,12 +473,27 @@
     .btn-outline { background: transparent; color: var(--accent); border: 1px solid rgba(59, 130, 246, 0.35); }
     .btn-outline:hover { background: rgba(59, 130, 246, 0.1); border-color: rgba(59, 130, 246, 0.6); }
 
+    .btn-row { display: flex; flex-wrap: wrap; gap: var(--space-3); }
+    .btn-row.center { justify-content: center; }
+
     /* CTA Footer */
     .cta-section { text-align: center; padding: var(--space-8) 0 var(--space-4); }
     .cta-heading { font-size: var(--text-2xl); font-weight: 700; letter-spacing: -0.02em; color: var(--text-primary); margin-bottom: var(--space-4); }
-    .cta-sub { font-size: var(--text-base); color: var(--text-secondary); line-height: 1.65; margin-bottom: var(--space-5); max-width: 500px; margin-left: auto; margin-right: auto; }
+    .cta-sub { font-size: var(--text-base); color: var(--text-secondary); line-height: 1.65; margin-bottom: var(--space-5); max-width: 560px; margin-left: auto; margin-right: auto; }
     .cta-sub strong { color: var(--text-primary); font-weight: 600; }
-    .copyright { font-size: var(--text-xs); color: var(--text-tertiary); margin-top: var(--space-10); }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: var(--space-5);
+      margin: var(--space-6) 0 var(--space-4);
+      font-size: var(--text-sm);
+    }
+    .footer-links a { color: var(--text-secondary); }
+    .footer-links a:hover { color: var(--accent); }
+
+    .copyright { font-size: var(--text-xs); color: var(--text-tertiary); margin-top: var(--space-8); }
 
     /* Responsive */
     @media (min-width: 640px) {
@@ -435,8 +504,9 @@
       .cta-heading { font-size: 1.75rem; }
     }
 
-    @media (max-width: 480px) {
-      .comp-grid { grid-template-columns: 1fr; }
+    @media (max-width: 640px) {
+      .comp-grid, .comp-grid.three { grid-template-columns: 1fr; }
+      .ds-table th:nth-child(3), .ds-table td:nth-child(3) { display: none; }
     }
   </style>
 </head>
@@ -445,116 +515,103 @@
   <div class="container">
 
     <!-- ====== HEADER ====== -->
-    <section aria-label="Header" style="text-align:center">
+    <section class="header" aria-label="Header">
       <div class="oneliner">
-        Distill <span class="hl">Sam's judgment</span>.<br>Forge <span class="hl">your own</span> AI model.
+        An <span class="hl">AI image-algorithm engineer</span>,<br>distilled into <span class="hl">one desktop app</span>.
       </div>
       <p class="tagline">
-        KeenForge is an AI agent that distills our CTO's 7-year vision AI workflow — so anyone with trained eyes can train their own expert-grade model. No code. No cloud. You own it — and you earn from it.
+        KeenForge lets domain experts annotate a niche dataset and walk away with a trained vision
+        model — <strong style="color:var(--text-primary)">no code, no cloud, no ML background</strong>.
+        When your dataset is finished, your model is trained.
       </p>
 
       <div style="display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-bottom:var(--space-4);">
         <span class="badge badge-green">CVPR 2026 Demo</span>
         <span class="badge badge-blue">Nature Portfolio</span>
         <span class="badge badge-blue">MIT Open Source</span>
-        <span class="badge badge-green">100% Local</span>
+        <span class="badge badge-green">100% Offline</span>
       </div>
 
-      <div style="text-align:center;margin-top:var(--space-4);">
-        <a href="mailto:lucygan113@gmail.com?subject=KeenForge" class="btn btn-cta">
-          <i class="fas fa-paper-plane"></i> Get in Touch
+      <div class="btn-row center">
+        <a href="https://github.com/KeenForgeAI/KeenForge" class="btn btn-cta" target="_blank" rel="noopener">
+          <i class="fab fa-github"></i> Star on GitHub
+        </a>
+        <a href="https://www.youtube.com/watch?v=shU62O8_40E" class="btn btn-outline" target="_blank" rel="noopener">
+          <i class="fas fa-play"></i> Watch the demo
+        </a>
+        <a href="https://github.com/KeenForgeAI/KeenForgeData" class="btn btn-outline" target="_blank" rel="noopener">
+          <i class="fas fa-database"></i> Datasets
         </a>
       </div>
-
     </section>
 
     <hr class="divider">
 
-    <!-- ====== THE PROBLEM + OUR ANSWER ====== -->
-    <section aria-label="What We Do">
-      <h2 class="section-heading">What We Do</h2>
+    <!-- ====== THE GAP ====== -->
+    <section aria-label="The gap">
+      <h2 class="section-heading">Foundation models can't label what they've never seen</h2>
 
       <div class="card card-green">
-        <p class="project-tagline" style="margin-bottom:0;">
-          <strong>GPT-4V scores 22% on industrial defect detection. The factory needs 98%+.</strong> Generic models hit a structural ceiling in specialized domains. The people who could train expert models — QC engineers, radiologists, agronomists — are locked out by the code barrier. KeenForge replaces the entire ML pipeline with one AI agent. <strong class="em">Expert labels and reviews. AI handles everything else — from data cleaning to deployment.</strong>
-        </p>
-      </div>
-    </section>
-
-    <hr class="divider">
-
-    <!-- ====== WHY SPECIALIZATION ====== -->
-    <section aria-label="Why Specialization">
-      <h2 class="section-heading">The Theory Behind KeenForge</h2>
-
-      <div class="card card-accent">
-        <p class="project-tagline" style="margin-bottom:0;">
-          <a href="https://arxiv.org/pdf/2602.23643" target="_blank" rel="noopener" style="color:var(--text-secondary);"><strong style="color:var(--accent);">SAI: AI Must Embrace Specialization via Superhuman Adaptable Intelligence</strong> — Goldfeder, Wyder, LeCun &amp; Shwartz-Ziv (2025)</a> — argues the future of AI is not one general model, but thousands of specialized superhuman systems. <strong class="em">This is the thesis KeenForge is built on.</strong>
-        </p>
-      </div>
-    </section>
-
-    <hr class="divider">
-
-    <!-- ====== THE DUO ====== -->
-    <section aria-label="The Duo">
-      <h2 class="section-heading">The Duo</h2>
-      <div class="duo-grid">
-        <!-- Lu Gan -->
-        <div class="card duo-card">
-          <div class="duo-avatar lu"><img src="background/cropped-lugan_photo%20(1).jpg" alt="Lu Gan"></div>
-          <div class="duo-info">
-            <h3>Lu Gan</h3>
-            <div class="duo-role">CEO · Domain Expert Turned AI Builder</div>
-            <p class="duo-desc">Nature Portfolio first author. Self-taught from clinical physiotherapy — lived the problem: "I had the domain expertise but couldn't train a model." Now building the tool that eliminates that barrier for everyone.</p>
-            <div class="duo-links">
-              <a href="mailto:lucygan113@gmail.com" class="duo-link email" aria-label="Email"><i class="fas fa-envelope"></i></a>
-              <a href="https://www.linkedin.com/in/lu-gan-91786217a/" target="_blank" rel="noopener" class="duo-link linkedin" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-            </div>
-          </div>
-        </div>
-        <!-- Sam Li -->
-        <div class="card duo-card">
-          <div class="duo-avatar xi"><img src="background/cropped-lixi_photo.jpg" alt="Sam Li"></div>
-          <div class="duo-info">
-            <h3>Sam Li</h3>
-            <div class="duo-role">CTO · 7-Year Vision AI Engineer</div>
-            <p class="duo-desc">Full-stack vision pipeline: data cleaning → model selection → hyperparameter tuning → ONNX deployment. The AI agent we're building is a distillation of his entire workflow.</p>
-            <div class="duo-links">
-              <a href="mailto:reilixi723@gmail.com" class="duo-link email" aria-label="Email"><i class="fas fa-envelope"></i></a>
-              <a href="https://www.linkedin.com/in/sam-li-50a96617a/" target="_blank" rel="noopener" class="duo-link linkedin" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <hr class="divider">
-
-    <!-- ====== PRODUCT ====== -->
-    <section aria-label="Product">
-      <h2 class="section-heading">KeenForge</h2>
-
-      <div class="card" style="margin-bottom:var(--space-5);">
         <p class="project-tagline">
-          <strong>Not a labeling tool. An AI vision engineer agent.</strong> Desktop app. Expert opens it → imports images → draws boxes → AI trains in the background, in real time. The full pipeline runs locally. Your data never leaves your machine.
+          <strong>GPT-4V scores 22% on industrial defect detection. The factory needs 98%+.</strong>
+        </p>
+        <p class="project-tagline">
+          This is not a tuning problem — it is structural. General and world models are trained on the
+          <em>common</em> world: people, cars, animals, everyday objects. A hairline crease on a
+          steel strip, a rare cell morphology, a specific crop blight, a particular security anomaly —
+          those are out-of-distribution, and the model's recall collapses exactly where the stakes
+          are highest.
+        </p>
+        <p class="project-tagline">
+          So <strong class="em">experts still have to annotate.</strong> A QC engineer, a radiologist,
+          an agronomist — they can tell a defect from a shadow in a fraction of a second. What they
+          could not do was turn that judgement into a working model, because that required writing
+          code and training neural networks.
+        </p>
+        <p class="project-tagline">
+          <strong>KeenForge closes that gap.</strong> The expert keeps doing what only they can do —
+          judging the images. The tool does everything an image-algorithm engineer would normally do
+          around them.
+        </p>
+      </div>
+
+      <div class="card card-accent" style="margin-top:var(--space-4);">
+        <p class="project-tagline">
+          <a href="https://arxiv.org/abs/2602.23643" target="_blank" rel="noopener" style="color:var(--text-secondary);"><strong style="color:var(--accent);">SAI: AI Must Embrace Specialization via Superhuman Adaptable Intelligence</strong> — Goldfeder, Wyder, LeCun &amp; Shwartz-Ziv (2025)</a>
+          — argues the future of AI is not one general model, but thousands of specialised superhuman
+          systems. <strong class="em">That is the thesis KeenForge is built on.</strong>
+        </p>
+      </div>
+    </section>
+
+    <hr class="divider">
+
+    <!-- ====== THE TOOL ====== -->
+    <section aria-label="The tool">
+      <h2 class="section-heading">KeenForge — the algorithm engineer, distilled</h2>
+
+      <div class="card" style="margin-bottom:var(--space-4);">
+        <p class="project-tagline">
+          <strong>Not a labelling tool. A distilled AI vision engineer.</strong> Open the desktop app,
+          import your images, draw a handful of boxes — and the model trains in the background while
+          you keep working. Everything runs on your own machine. <strong>Your data never leaves it.</strong>
         </p>
 
         <!-- Pipeline -->
         <div class="pipeline">
           <div class="step">Import</div><span class="arrow">→</span>
           <div class="step auto">Auto-Clean</div><span class="arrow">→</span>
-          <div class="step">Expert Labels<br><span style="font-size:0.65rem">30-50 imgs</span></div><span class="arrow">→</span>
+          <div class="step">Expert Labels<br><span style="font-size:0.65rem">~15 imgs</span></div><span class="arrow">→</span>
           <div class="step auto">Real-Time<br>Training</div>
         </div>
         <div class="pipeline" style="margin-top:-6px">
           <span class="arrow">→</span>
-          <div class="step auto">Edge Cases<br><span style="font-size:0.65rem">VLM</span></div><span class="arrow">→</span>
-          <div class="step auto">Synthetic<br>Data</div><span class="arrow">→</span>
-          <div class="step auto">Auto-Tune<br><span style="font-size:0.65rem">LLM</span></div><span class="arrow">→</span>
-          <div class="step auto">Deploy</div>
+          <div class="step auto">Pre-Label<br><span style="font-size:0.65rem">next batch</span></div><span class="arrow">→</span>
+          <div class="step">Expert<br>Corrects</div><span class="arrow">→</span>
+          <div class="step auto">Model<br>Iterates</div><span class="arrow">→</span>
+          <div class="step auto">Export /<br>Deploy</div>
         </div>
-        <p class="pipeline-legend">Green = AI automated &nbsp;|&nbsp; White = expert involved</p>
+        <p class="pipeline-legend">Green = handled by KeenForge &nbsp;|&nbsp; White = the expert's judgement</p>
 
         <!-- Stats -->
         <div class="stat-row">
@@ -568,35 +625,176 @@
           </div>
           <div class="stat-item">
             <div class="stat-val">100%</div>
-            <div class="stat-lbl">Local · Data Never Leaves</div>
+            <div class="stat-lbl">Offline · Data Never Leaves</div>
           </div>
           <div class="stat-item">
             <div class="stat-val">MIT</div>
-            <div class="stat-lbl">Enterprise License</div>
+            <div class="stat-lbl">Open Source</div>
           </div>
         </div>
 
-        <!-- Comparison -->
-        <div class="comp-grid">
-          <div class="comp-box old">
-            <div class="comp-label">Existing Tools</div>
-            <div class="comp-body">Label batch → manually train → wait → load.<br><strong>Hours to days per loop.</strong></div>
-          </div>
-          <div class="comp-box new">
-            <div class="comp-label">KeenForge</div>
-            <div class="comp-body">Labeling → <strong>background auto-training</strong> → sub-second model update.<br><strong>Producer-Consumer threading.</strong></div>
-          </div>
-        </div>
-
-        <!-- Demo + GitHub -->
         <p class="project-tagline" style="margin-bottom:var(--space-3);">
-          This is our <strong>early-stage prototype</strong> — the foundational HITL real-time training framework demonstrated at CVPR 2026. We are now integrating more AI capabilities into the pipeline: VLM edge-case discovery, synthetic data generation, and LLM-driven auto-tuning.
+          An image-algorithm engineer's job is a long chain: clean the dataset, choose the model,
+          tune the hyper-parameters, find the edge cases, deploy the export. KeenForge is that
+          chain, automated around a human who only has to look at pictures and say
+          <em>"yes"</em> or <em>"no"</em>.
         </p>
-        <div style="display:flex;flex-wrap:wrap;gap:12px;">
+        <div class="btn-row">
           <a href="https://www.youtube.com/watch?v=shU62O8_40E" class="btn btn-primary" target="_blank" rel="noopener"><i class="fas fa-play"></i> CVPR 2026 Demo</a>
-          <a href="https://github.com/KeenForgeAI/AutoLabel-Pro" class="btn btn-outline" target="_blank" rel="noopener"><i class="fab fa-github"></i> GitHub</a>
+          <a href="https://github.com/KeenForgeAI/KeenForge" class="btn btn-outline" target="_blank" rel="noopener"><i class="fab fa-github"></i> Source Code</a>
         </div>
+      </div>
+    </section>
 
+    <hr class="divider">
+
+    <!-- ====== WHY THE LOOP ====== -->
+    <section aria-label="Why the loop">
+      <h2 class="section-heading">Why "let the big model label it" fails on niche data</h2>
+
+      <div class="comp-grid three">
+        <div class="comp-box old">
+          <div class="comp-label">Manual labelling</div>
+          <div class="comp-body">
+            Every image drawn by hand, forever. No feedback, no acceleration.
+            <br><br><strong>Niche data is slow and expensive.</strong>
+          </div>
+        </div>
+        <div class="comp-box old">
+          <div class="comp-label">Big-model auto-labelling</div>
+          <div class="comp-body">
+            Works well on common objects. On rare specialist samples the model has barely seen, it
+            guesses — and you spend more time fixing wrong boxes than drawing them.
+            <br><br><strong>Unreliable exactly where it matters.</strong>
+          </div>
+        </div>
+        <div class="comp-box new">
+          <div class="comp-label">KeenForge</div>
+          <div class="comp-body">
+            You label a small seed set. The model trains on <em>your</em> domain, pre-labels the next
+            batch, you correct it. Each round it needs less from you.
+            <br><br><strong>The model learns your expertise — then does the work.</strong>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <p class="project-tagline">
+          A general model will never become an expert in your domain by itself — your defect, your
+          tissue, your crop exists in the long tail it was never trained on. But a model
+          <strong>can</strong> learn it from a surprisingly small number of expert-corrected examples.
+          That is what the loop exploits: <strong class="em">your corrections are the training signal,
+          and the model's own mistakes are what tells it where to look next.</strong>
+        </p>
+      </div>
+    </section>
+
+    <hr class="divider">
+
+    <!-- ====== WHO IT'S FOR ====== -->
+    <section aria-label="Who it is for">
+      <h2 class="section-heading">Built for the people who own the judgement</h2>
+      <div class="card">
+        <ul class="tick-list">
+          <li><strong>Quality &amp; manufacturing engineers</strong> — steel, PCB, casting, textile, welding. Surface defects that no general detector has ever seen enough of.</li>
+          <li><strong>Clinicians &amp; pathologists</strong> — cell morphology, histology, radiology. Rare presentations, high cost of a wrong label.</li>
+          <li><strong>Agronomists &amp; ecologists</strong> — crop disease, pests, species monitoring. Long-tail classes, very few public images.</li>
+          <li><strong>Security &amp; safety teams</strong> — domain-specific anomalies, PPE compliance, site-specific risks.</li>
+        </ul>
+      </div>
+    </section>
+
+    <hr class="divider">
+
+    <!-- ====== DATASETS ====== -->
+    <section aria-label="Datasets">
+      <h2 class="section-heading">We also curate public niche datasets</h2>
+
+      <div class="card" style="margin-bottom:var(--space-4);">
+        <p class="project-tagline">
+          Public niche datasets are often large but noisy: loose boxes, missed objects, mislabels,
+          duplicated images, class names that don't even match. Training on them caps your ceiling
+          before you start.
+        </p>
+        <p class="project-tagline">
+          We take these datasets, <strong>re-annotate and clean</strong> them with KeenForge, document
+          every change, and publish them openly on <strong>Hugging Face</strong> and
+          <strong>ModelScope</strong> — so anyone can start from a clean baseline instead of
+          re-discovering the same defects.
+        </p>
+
+        <table class="ds-table">
+          <thead>
+            <tr><th>Dataset</th><th>Domain</th><th>Size</th><th>Links</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>GC10-DET-corrected</strong></td>
+              <td>Industrial — steel surface</td>
+              <td>2,280 imgs<br>3,542 boxes</td>
+              <td><a href="https://huggingface.co/datasets/KeenForgeAI/GC10-DET-corrected" target="_blank" rel="noopener">Hugging Face</a><br><a href="https://www.modelscope.ai/datasets/KeenForgeAI/GC10-DET-corrected" target="_blank" rel="noopener">ModelScope</a></td>
+            </tr>
+            <tr>
+              <td><strong>TXL-PBC-corrected</strong></td>
+              <td>Medical — hematology</td>
+              <td>1,256 imgs<br>18,098 boxes</td>
+              <td><a href="https://huggingface.co/datasets/KeenForgeAI/TXL-PBC-corrected" target="_blank" rel="noopener">Hugging Face</a><br><a href="https://www.modelscope.ai/datasets/KeenForgeAI/TXL-PBC-corrected" target="_blank" rel="noopener">ModelScope</a></td>
+            </tr>
+            <tr>
+              <td><strong>raccoon-corrected</strong></td>
+              <td>Wildlife</td>
+              <td>193 imgs<br>211 boxes</td>
+              <td><a href="https://huggingface.co/datasets/KeenForgeAI/raccoon-corrected" target="_blank" rel="noopener">Hugging Face</a><br><a href="https://www.modelscope.ai/datasets/KeenForgeAI/raccoon-corrected" target="_blank" rel="noopener">ModelScope</a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="card card-green">
+        <p class="project-tagline">
+          Every release ships with full provenance, a correction report and its upstream citation.
+          Corrections found by the community are very welcome — <strong class="em">if you spot a bad
+          box, tell us and we will fix it.</strong>
+        </p>
+        <div class="btn-row">
+          <a href="https://github.com/KeenForgeAI/KeenForgeData" class="btn btn-outline" target="_blank" rel="noopener"><i class="fas fa-database"></i> Dataset index</a>
+          <a href="https://huggingface.co/KeenForgeAI" class="btn btn-outline" target="_blank" rel="noopener"><i class="fas fa-arrow-up-right-from-square"></i> All datasets on HF</a>
+        </div>
+      </div>
+    </section>
+
+    <hr class="divider">
+
+    <!-- ====== THE DUO ====== -->
+    <section aria-label="Who we are">
+      <h2 class="section-heading">Who we are</h2>
+      <div class="duo-grid">
+        <!-- Lu Gan -->
+        <div class="card duo-card">
+          <div class="duo-avatar lu"><img src="background/cropped-lugan_photo%20(1).jpg" alt="Lu Gan"></div>
+          <div class="duo-info">
+            <h3>Lu Gan</h3>
+            <div class="duo-role">Independent Researcher · Domain Expert</div>
+            <p class="duo-desc">Nature Portfolio first author. Trained as a clinical physiotherapist, self-taught into AI — and lived the problem first-hand: <em>"I had the domain expertise, but I couldn't train a model."</em> Now building the tool that removes that barrier for every other expert.</p>
+            <div class="duo-links">
+              <a href="mailto:lucygan113@gmail.com" class="duo-link email" aria-label="Email"><i class="fas fa-envelope"></i></a>
+              <a href="https://www.linkedin.com/in/lu-gan-91786217a/" target="_blank" rel="noopener" class="duo-link linkedin" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+          </div>
+        </div>
+        <!-- Sam Li -->
+        <div class="card duo-card">
+          <div class="duo-avatar xi"><img src="background/cropped-lixi_photo.jpg" alt="Sam Li"></div>
+          <div class="duo-info">
+            <h3>Sam Li</h3>
+            <div class="duo-role">Independent Developer · Vision AI Engineer</div>
+            <p class="duo-desc">Seven years of full-stack vision work: dataset cleaning → model selection → hyper-parameter tuning → ONNX deployment. KeenForge is a distillation of that entire workflow into software.</p>
+            <div class="duo-links">
+              <a href="mailto:reilixi723@gmail.com" class="duo-link email" aria-label="Email"><i class="fas fa-envelope"></i></a>
+              <a href="https://www.linkedin.com/in/sam-li-50a96617a/" target="_blank" rel="noopener" class="duo-link linkedin" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -608,25 +806,48 @@
       <div class="card card-accent">
         <div class="pub-journal">Nature · Scientific Data · 2025</div>
         <p class="pub-title"><a href="https://www.nature.com/articles/s41597-025-05980-z#Abs1" target="_blank" rel="noopener">"A Curated and Re-annotated Peripheral Blood Cell Dataset Integrating Four Public Resources"</a></p>
-        <p class="pub-role"><strong>First Author</strong> — Curated the dataset, led annotation strategy, and drove the research from clinical insight to publication.</p>
+        <p class="pub-role"><strong>First Author</strong> — curated the dataset, led the annotation strategy, and drove the research from clinical insight to publication. The corrected dataset is published as <a href="https://huggingface.co/datasets/KeenForgeAI/TXL-PBC-corrected" target="_blank" rel="noopener">TXL-PBC-corrected</a>.</p>
       </div>
     </section>
 
     <hr class="divider">
 
-    <!-- ====== CTA FOOTER ====== -->
+    <!-- ====== JOIN US ====== -->
     <footer class="cta-section">
-      <h2 class="cta-heading">Building the Model Creator Economy</h2>
+      <h2 class="cta-heading">Come build it with us</h2>
       <p class="cta-sub">
-        KeenForge is more than a tool — it's a <strong>Visual AI Model Store</strong>. A platform that turns every creator's expertise into lasting value. Train a model that reaches 98%+ accuracy, and it can be deployed anywhere in the world — improving real productivity on real production lines, in real hospitals, on real farms. Every time it's used, <strong>you earn royalties</strong>. We're not here to sell software. We're here to maximize the value of human expertise.
+        KeenForge is open source and community-driven. The goal is bigger than one tool:
+        <strong>to distil what an image-algorithm engineer does, so that the people who actually
+        understand the data can build the models.</strong> There is a lot still to do.
       </p>
-      <p class="cta-sub" style="margin-top:-8px;">
-        <strong>Seed round $750K–$1.2M.</strong> We've done the hard part — the HITL real-time training engine is built and validated. Now we're accelerating toward product-market fit.
-      </p>
-      <a href="mailto:lucygan113@gmail.com?subject=KeenForge%20Seed" class="btn btn-cta">
-        <i class="fas fa-paper-plane"></i> Get in Touch
-      </a>
-      <p class="copyright">&copy; 2026 Lu Gan &amp; Sam Li. KeenForge.</p>
+
+      <div class="card" style="text-align:left;margin-bottom:var(--space-5);">
+        <ul class="tick-list">
+          <li><strong>Use it and tell us what breaks</strong> — bug reports and feature requests shape the roadmap more than anything else. <a href="https://github.com/KeenForgeAI/KeenForge/issues" target="_blank" rel="noopener">Open an issue</a>.</li>
+          <li><strong>Contribute code</strong> — the tool is MIT licensed. PRs, docs, tests and translations are all welcome.</li>
+          <li><strong>Contribute a dataset</strong> — re-annotated a niche dataset with KeenForge? We will help you clean, document and publish it.</li>
+          <li><strong>Spread the word</strong> — star the repo, share your workflow, point a domain expert at it.</li>
+        </ul>
+      </div>
+
+      <div class="btn-row center">
+        <a href="https://github.com/KeenForgeAI/KeenForge" class="btn btn-cta" target="_blank" rel="noopener">
+          <i class="fab fa-github"></i> Star KeenForge on GitHub
+        </a>
+        <a href="mailto:lucygan113@gmail.com?subject=KeenForge" class="btn btn-outline">
+          <i class="fas fa-paper-plane"></i> Get in touch
+        </a>
+      </div>
+
+      <nav class="footer-links" aria-label="Links">
+        <a href="https://github.com/KeenForgeAI/KeenForge" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://github.com/KeenForgeAI/KeenForgeData" target="_blank" rel="noopener">Datasets</a>
+        <a href="https://huggingface.co/KeenForgeAI" target="_blank" rel="noopener">Hugging Face</a>
+        <a href="https://www.modelscope.ai/organizations/KeenForgeAI" target="_blank" rel="noopener">ModelScope</a>
+        <a href="https://www.youtube.com/watch?v=shU62O8_40E" target="_blank" rel="noopener">Demo</a>
+      </nav>
+
+      <p class="copyright">&copy; 2026 KeenForgeAI · KeenForge is released under the MIT licence.</p>
     </footer>
 
   </div>
